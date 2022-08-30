@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/react-deploy/static/css/main.9239be44.chunk.css",
+    "main.js": "/react-deploy/static/js/main.d7832e4e.chunk.js",
+    "main.js.map": "/react-deploy/static/js/main.d7832e4e.chunk.js.map",
+    "runtime-main.js": "/react-deploy/static/js/runtime-main.9ff27ffd.js",
+    "runtime-main.js.map": "/react-deploy/static/js/runtime-main.9ff27ffd.js.map",
+    "static/css/2.79441796.chunk.css": "/react-deploy/static/css/2.79441796.chunk.css",
+    "static/js/2.c87788fe.chunk.js": "/react-deploy/static/js/2.c87788fe.chunk.js",
+    "static/js/2.c87788fe.chunk.js.map": "/react-deploy/static/js/2.c87788fe.chunk.js.map",
+    "index.html": "/react-deploy/index.html",
+    "static/css/2.79441796.chunk.css.map": "/react-deploy/static/css/2.79441796.chunk.css.map",
+    "static/css/main.9239be44.chunk.css.map": "/react-deploy/static/css/main.9239be44.chunk.css.map",
+    "static/js/2.c87788fe.chunk.js.LICENSE.txt": "/react-deploy/static/js/2.c87788fe.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/react-deploy/static/media/outline-icons.ddae9b1b.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9ff27ffd.js",
+    "static/css/2.79441796.chunk.css",
+    "static/js/2.c87788fe.chunk.js",
+    "static/css/main.9239be44.chunk.css",
+    "static/js/main.d7832e4e.chunk.js"
+  ]
+}
