@@ -9,7 +9,7 @@ function App() {
     <Router>
       <div className="main">
         <div>
-          <h3>React Crud Operations</h3>
+          <h3>Produit Manager</h3>
         </div>
 
         <div>

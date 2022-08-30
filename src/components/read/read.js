@@ -6,27 +6,40 @@ import { Link } from 'react-router-dom';
 export default function Read() {
     const [apiData, setApiData] = useState([]);
     useEffect(() => {
-        axios.get(`https://60cdfb0691cc8e00178dc448.mockapi.io/Crud`)
+        axios.get(`http://produitgestion.herokuapp.com/api/v1/Produits`, {
+            headers: {
+               authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibWFuc291ciIsInBhc3N3b3JkIjoicHdkMTIzIiwiaWF0IjoxNjYwODE2NjMyfQ.Fz3RwBEo4uoGfFE8VRHPVOCd36I6eiYSSHPdfXIKn6g' ,
+               'Content-Type': 'application/json'
+            } })
             .then((getData) => {
                 setApiData(getData.data);
             })
     }, [])
 
-    const setData = (id, firstName, lastName) => {
+    const setData = (id, image,firstName, lastPrix) => {
         localStorage.setItem('ID', id)
         localStorage.setItem('firstName', firstName)
-        localStorage.setItem('lastName', lastName)
+        localStorage.setItem('lastPrix', lastPrix)
+        localStorage.setItem('image', image)
     }
 
     const getData = () => {
-        axios.get(`https://60cdfb0691cc8e00178dc448.mockapi.io/Crud`)
+        axios.get(`http://produitgestion.herokuapp.com/api/v1/Produits`, {
+            headers: {
+               authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibWFuc291ciIsInBhc3N3b3JkIjoicHdkMTIzIiwiaWF0IjoxNjYwODE2NjMyfQ.Fz3RwBEo4uoGfFE8VRHPVOCd36I6eiYSSHPdfXIKn6g' ,
+               'Content-Type': 'application/json'
+            } })
             .then((getData) => {
                 setApiData(getData.data);
             })
     }
 
     const onDelete = (id) => {
-        axios.delete(`https://60cdfb0691cc8e00178dc448.mockapi.io/Crud/${id}`)
+        axios.delete(`http://produitgestion.herokuapp.com/api/v1/Produits/${id}`, {
+            headers: {
+               authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibWFuc291ciIsInBhc3N3b3JkIjoicHdkMTIzIiwiaWF0IjoxNjYwODE2NjMyfQ.Fz3RwBEo4uoGfFE8VRHPVOCd36I6eiYSSHPdfXIKn6g' ,
+               'Content-Type': 'application/json'
+            } })
         .then(() => {
             getData();
         })
@@ -38,8 +51,8 @@ export default function Read() {
                 <Table.Header>
                     <Table.Row>
                         <Table.HeaderCell>ID</Table.HeaderCell>
-                        <Table.HeaderCell>First Name</Table.HeaderCell>
-                        <Table.HeaderCell>Last Name</Table.HeaderCell>
+                        <Table.HeaderCell>Name</Table.HeaderCell>
+                        <Table.HeaderCell>Prix</Table.HeaderCell>
                         <Table.HeaderCell>Update</Table.HeaderCell>
                         <Table.HeaderCell>Delete</Table.HeaderCell>
                     </Table.Row>
@@ -49,20 +62,20 @@ export default function Read() {
                     {apiData.map((data) => {
                         return (
                             <Table.Row>
-                                <Table.Cell>{data.id}</Table.Cell>
-                                <Table.Cell>{data.firstName}</Table.Cell>
-                                <Table.Cell>{data.lastName}</Table.Cell>
+                                <Table.Cell><img src={data.image} width='100' height='100' /></Table.Cell>
+                                <Table.Cell>{data.name}</Table.Cell>
+                                <Table.Cell>{data.prix}</Table.Cell>
                                 <Table.Cell>
                                     <Link to='/update'>
                                         <Button
                                             color="green"
-                                            onClick={() => setData(data.id, data.firstName, data.lastName)}>
+                                            onClick={() => setData(data._id,data.image, data.name, data.prix)}>
                                             Update
                                         </Button>
                                     </Link>
                                 </Table.Cell>
                                 <Table.Cell>
-                                    <Button color="red" onClick={() => onDelete(data.id)}>Delete</Button>
+                                    <Button color="red" onClick={() => onDelete(data._id)}>Delete</Button>
                                 </Table.Cell>
                             </Table.Row>
                         )
